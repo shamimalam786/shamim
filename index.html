@@ -369,7 +369,7 @@
         /* Contact Details Layout */
         .contact-section {
             background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
-            padding: 8rem 4%;
+            padding: 8rem 4% 4rem 4%;
             border-top: 1px solid var(--border-color);
             text-align: center;
         }
@@ -419,6 +419,58 @@
 
         .contact-link:hover {
             color: #aaa;
+        }
+
+        /* New Payment QR Code Section */
+        .payment-section {
+            background-color: #0c0c0c;
+            padding: 5rem 4%;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .payment-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .qr-image {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            border-radius: 4px;
+            margin: 1.5rem auto;
+            display: block;
+            background-color: #fff;
+            padding: 10px;
+        }
+
+        .upi-details {
+            margin-top: 1rem;
+        }
+
+        .upi-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .upi-id {
+            font-size: 0.95rem;
+            color: #888;
+            margin-top: 0.25rem;
+            font-family: monospace;
+            background: #181818;
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            border: 1px solid #222;
         }
 
         footer {
@@ -615,12 +667,20 @@
         </div>
     </section>
 
+    <section class="payment-section">
+        <div class="section-label">Secure Payment Gateway</div>
+        <h2 style="text-transform: uppercase; letter-spacing: -1px; font-size: 2rem; margin-bottom: 2.5rem; font-weight: 900;">Scan to Pay via UPI</h2>
+        <div class="payment-container">
+            <span class="channel-label">Pay Using Any UPI App</span>
+            <img class="qr-image" src="1000076170.jpg" alt="UPI Payment QR Code">
+            <div class="upi-details">
+                <div class=""></div>
+                <div class="upi-id"></div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div>© 2026 Shamim Engineering. All Rights Reserved.</div>
         <div>
-            <a href="https://www.facebook.com/shamim.alam.169108" target="_blank" rel="noopener noreferrer">Facebook Profile →</a>
-        </div>
-    </footer>
-
-</body>
-</html>
+            <a
