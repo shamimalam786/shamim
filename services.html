@@ -421,7 +421,33 @@
             color: #aaa;
         }
 
-        /* New Payment QR Code Section */
+        /* Dual Link Sub-actions inside Contact Cards */
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .sub-link {
+            font-size: 0.9rem;
+            color: #888;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #333;
+            padding: 4px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .sub-link:hover {
+            color: #fff;
+            border-color: #666;
+            background: #1a1a1a;
+        }
+
+        /* Payment QR Code Section */
         .payment-section {
             background-color: #0c0c0c;
             padding: 5rem 4%;
@@ -429,6 +455,28 @@
             text-align: center;
         }
 
+        /* Scanner Toggle Button */
+        .toggle-scanner-btn {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-scanner-btn:hover {
+            background-color: #cccccc;
+            transform: translateY(-2px);
+        }
+
+        /* Hidden QR scanner container by default */
         .payment-container {
             max-width: 400px;
             margin: 0 auto;
@@ -437,6 +485,7 @@
             border-radius: 8px;
             padding: 2.5rem 1.5rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            display: none; /* Controlled via Javascript */
         }
 
         .qr-image {
@@ -656,31 +705,60 @@
                 <span class="channel-label">Direct Email</span>
                 <a href="mailto:shamimengineering786@gmail.com" class="contact-link">shamimengineering786@gmail.com</a>
             </div>
+            
             <div class="contact-box">
-                <span class="channel-label">WhatsApp Hotline</span>
-                <a href="https://wa.me/8801534666560" class="contact-link" target="_blank" rel="noopener noreferrer">+8801534666560</a>
+                <span class="channel-label">Bangladesh Hotline Support</span>
+                <span class="contact-link">+8801534666560</span>
+                <div class="contact-actions">
+                    <a href="https://wa.me/8801534666560" target="_blank" rel="noopener noreferrer" class="sub-link">WhatsApp</a>
+                    <a href="tel:+8801534666560" class="sub-link">Direct Call</a>
+                </div>
             </div>
+
             <div class="contact-box">
-                <span class="channel-label">Phone & Mobile Support</span>
-                <a href="tel:+917070700119" class="contact-link">+917070700119</a>
+                <span class="channel-label">India Hotline Support</span>
+                <span class="contact-link">+917070700119</span>
+                <div class="contact-actions">
+                    <a href="https://wa.me/917070700119" target="_blank" rel="noopener noreferrer" class="sub-link">WhatsApp</a>
+                    <a href="tel:+917070700119" class="sub-link">Direct Call</a>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="payment-section">
         <div class="section-label">Secure Payment Gateway</div>
-        <h2 style="text-transform: uppercase; letter-spacing: -1px; font-size: 2rem; margin-bottom: 2.5rem; font-weight: 900;">Scan to Pay via UPI</h2>
-        <div class="payment-container">
-            <span class="channel-label">Pay Using Any UPI App</span>
-            <img class="qr-image" src="1000076170.jpg" alt="UPI Payment QR Code">
+        <h2 style="text-transform: uppercase; letter-spacing: -1px; font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 1.5rem;">Scan to Complete Payment</h2>
+        
+        <button class="toggle-scanner-btn" id="toggleScannerBtn">Show QR Scanner</button>
+
+        <div class="payment-container" id="scannerContainer">
+            <img src="1000076170.jpg" alt="UPI QR Code" class="qr-image">
             <div class="upi-details">
-                <div class=""></div>
-                <div class="upi-id"></div>
+                <div class="upi-name">Mohammad Shamim Alam</div>
+                <div></div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div>© 2026 Shamim Engineering. All Rights Reserved.</div>
-        <div>
-            <a
+        <div>&copy; 2026 Shamim Engineering. All Rights Reserved.</div>
+        <div>Designed for Engineering Excellence</div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleScannerBtn');
+        const scannerContainer = document.getElementById('scannerContainer');
+
+        toggleBtn.addEventListener('click', () => {
+            if (scannerContainer.style.display === 'none' || scannerContainer.style.display === '') {
+                scannerContainer.style.display = 'block';
+                toggleBtn.textContent = 'Hide QR Scanner';
+            } else {
+                scannerContainer.style.display = 'none';
+                toggleBtn.textContent = 'Show QR Scanner';
+            }
+        });
+    </script>
+</body>
+</html>
